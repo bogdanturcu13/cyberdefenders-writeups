@@ -16,7 +16,7 @@ En este laboratorio realizamos una investigación de **forense de red** para ana
 La respuesta de la consulta DNS devuelve la IP: **`62.173.142.148`**.  
 Al buscar este dominio en fuentes de inteligencia (por ejemplo VirusTotal) se identifica como **malicioso**.
 
-![Petición DNS en Wireshark](https://github.com/bogdanturcu13/cyberdefenders-writeups/tree/main/Labs/DanaBot%20Lab/img/dns.png)
+![Petición DNS en Wireshark](https://raw.githubusercontent.com/bogdanturcu13/cyberdefenders-writeups/main/Labs/DanaBot%20Lab/img/dns.png)
 
 ---
 
@@ -26,7 +26,7 @@ Al buscar este dominio en fuentes de inteligencia (por ejemplo VirusTotal) se id
 **Respuesta:**  
 Existen dos posibilidades: que el malware no se encuentre todavía en los sistemas víctimas y deba entrar (POST) o que sí se encuentre en los sistemas y adquiera datos/archivos necesarios para llevar a cabo el ataque (POST). Por tanto podemos filtrar en Wireshark por http.request.method == 'GET' or http.request.method == 'POST'. Vemos que no hay ningún POST, por lo que analizamos los GET. El primer GET que se realiza es hacia /login.php del dominio portfolio.serveirc.com y el contenido que transporta es **`allegato_708.js`**.
 
-![Exportación de objetos HTTP en Wireshark](https://github.com/bogdanturcu13/cyberdefenders-writeups/tree/main/Labs/DanaBot%20Lab/img/allegato_708.png)
+![Exportación de objetos HTTP en Wireshark](https://raw.githubusercontent.com/bogdanturcu13/cyberdefenders-writeups/main/Labs/DanaBot%20Lab/img/allegato_708.png)
 
 ---
 
@@ -46,7 +46,7 @@ Existen dos posibilidades: que el malware no se encuentre todavía en los sistem
 **Respuesta:**  
 wscript.exe
 
-![Procesos de DanaBot en ANY.RUN](https://github.com/bogdanturcu13/cyberdefenders-writeups/tree/main/Labs/DanaBot%20Lab/img/anyrun.png)
+![Procesos de DanaBot en ANY.RUN](https://raw.githubusercontent.com/bogdanturcu13/cyberdefenders-writeups/main/Labs/DanaBot%20Lab/img/anyrun.png)
 
 ---
 
@@ -56,7 +56,7 @@ wscript.exe
 **Respuesta:**  
 resources.dll desde el dominio soundata.top.
 
-![Exportación de objetos HTTP en Wireshark](https://github.com/bogdanturcu13/cyberdefenders-writeups/tree/main/Labs/DanaBot%20Lab/img/objects.png)
+![Exportación de objetos HTTP en Wireshark](https://raw.githubusercontent.com/bogdanturcu13/cyberdefenders-writeups/main/Labs/DanaBot%20Lab/img/objects.png)
 
 ---
 
