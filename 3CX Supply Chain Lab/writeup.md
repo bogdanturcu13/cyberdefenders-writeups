@@ -26,7 +26,7 @@ Como analista de inteligencia de amenazas, tu responsabilidad es:
 > Entender el alcance del ataque e identificar qué versiones exhiben comportamiento malicioso es crucial para tomar decisiones informadas si estas versiones comprometidas están presentes en la organización.
 
 **Respuesta:**  
-Las dos versiones de 3CX detectadas como vulnerables son:
+Realizando una búsqueda en Internet, las dos versiones de 3CX detectadas como vulnerables son:
 
 - 18.12.407  
 - 18.12.416  
@@ -39,7 +39,7 @@ Las dos versiones de 3CX detectadas como vulnerables son:
 > Determinar la antigüedad del malware ayuda a evaluar la extensión del compromiso y rastrear la evolución de familias y variantes de malware.
 
 **Respuesta:**  
-`2023-03-13 6:33 UTC`
+Escaneando el archivo (o el hash) con VirusTotal obtenemos información detallada acerca de él. En la pestaña de Detalles, la primera fecha en la que se detectó fue el `2023-03-13 6:33 UTC`
 
 ---
 
@@ -47,7 +47,7 @@ Las dos versiones de 3CX detectadas como vulnerables son:
 > Analizar los archivos depositados por el instalador de software de Microsoft (.msi) es crucial para identificar archivos maliciosos e investigar su potencial completo.
 
 **Respuesta:**  
-Las DLL detectadas como maliciosas por VirusTotal son:
+El malware modifica y sobreescribe varios archivos .dll, sin embargo, solo dos son maliciososos. Podemos comprobarb en la pestaña de Relaciones que las DLL detectadas como maliciosas por VirusTotal son:
 
 - `ffmpeg.dll`  
 - `d3dcompiler_47.dll`
@@ -58,6 +58,7 @@ Las DLL detectadas como maliciosas por VirusTotal son:
 > Reconocer las técnicas de persistencia usadas es esencial para estrategias de mitigación y mejoras de defensa futuras.
 
 **Respuesta:**  
+Analizando el funcionamiento del malware en la pestaña de Comportamiento sacamos una visión general sobre las TTP (Tácticas, Técnicas y Procedimientos).
 - Técnica: **DLL Side-Loading**  
 - ID MITRE: `T1574`  
 - Funciones observadas:
@@ -71,6 +72,7 @@ Las DLL detectadas como maliciosas por VirusTotal son:
 > Reconocer el tipo de malware es esencial para la investigación.
 
 **Respuesta:**  
+Entrando a la página de análisis de los .dll resalta en rojo que son troyanos.
 - Categoría: **Trojan**
 
 ---
@@ -87,6 +89,7 @@ Las DLL detectadas como maliciosas por VirusTotal son:
 > Evitar perder tiempo durante ingeniería inversa identificando técnicas anti-análisis.
 
 **Respuesta:**  
+En la pestaña de Comportamiento del archivo ffmpeg.dll observamos que se comporta de manera peculiar, ya que el malware contiene código para ser consciente seobre si encuentra en una máquina virtual o no. 
 - Hipervisor: **VMWare**  
 - Descripción: `Reference anti-VM strings targeting VMWare`
 
@@ -95,7 +98,8 @@ Las DLL detectadas como maliciosas por VirusTotal son:
 ### 8. Algoritmo de encriptación usado por `ffmpeg.dll`
 > Identificar el método criptográfico usado en el malware es crucial para entender sus técnicas de evasión y funcionalidad.
 
-**Respuesta:**  
+**Respuesta:**
+Analizando la tabla de técnicas MITRE ATT&CK (pestaña de Comportamiento) vemos que una de las ténicas de Evasión de Defensas que utiliza es la encriptación de información mediante el algoritmo RC4. 
 - Algoritmo: **RC4 PRGA**
 
 ---
@@ -104,5 +108,6 @@ Las DLL detectadas como maliciosas por VirusTotal son:
 > Identificar al grupo APT responsable permite investigar TTPs usuales y descubrir otras actividades maliciosas potenciales.
 
 **Respuesta:**  
+Podemos conseguir la respuesta entrando a algunos foros sobre el tema o buscando artículos.
 - Grupo: **Lazarus** (Corea del Norte)  
 - Fuente: [Dark Reading](https://www.darkreading.com/endpoint-security/automatic-officlal-updates-malicious-3cx-enterprises)
