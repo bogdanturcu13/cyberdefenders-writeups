@@ -16,7 +16,7 @@ En este laboratorio realizamos una investigación de **forense de red** para ana
 La respuesta de la consulta DNS devuelve la IP: **`62.173.142.148`**.  
 Al buscar este dominio en fuentes de inteligencia (por ejemplo VirusTotal) se identifica como **malicioso**.
 
-![Petición DNS en Wireshark](https://raw.githubusercontent.com/bogdanturcu13/cyberdefenders-writeups/main/Labs/DanaBot%20Lab/img/dns.png)
+![Petición DNS en Wireshark](https://raw.githubusercontent.com/bogdanturcu13/secure-infrastructure/blob/main/img/grafana1.png)
 
 ---
 
